@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Consommation index{% endblock %}
+
+{% block body %}
+    <h1>Consommation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nouvelindex</th>
+                <th>Ancienindex</th>
+                <th>Datereleve</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for consommation in consommations %}
+            <tr>
+                <td>{{ consommation.id }}</td>
+                <td>{{ consommation.nouvelindex }}</td>
+                <td>{{ consommation.ancienindex }}</td>
+                <td>{{ consommation.datereleve ? consommation.datereleve|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('consommation_show', {'id': consommation.id}) }}">show</a>
+                    <a href="{{ path('consommation_edit', {'id': consommation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('consommation_new') }}">Create new</a>
+{% endblock %}

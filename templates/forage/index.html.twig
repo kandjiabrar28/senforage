@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forage index{% endblock %}
+
+{% block body %}
+    <h1>Forage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomforage</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for forage in forages %}
+            <tr>
+                <td>{{ forage.id }}</td>
+                <td>{{ forage.nomforage }}</td>
+                <td>
+                    <a href="{{ path('forage_show', {'id': forage.id}) }}">show</a>
+                    <a href="{{ path('forage_edit', {'id': forage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('forage_new') }}">Create new</a>
+{% endblock %}

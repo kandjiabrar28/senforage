@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Forage{% endblock %}
+
+{% block body %}
+    <h1>Edit Forage</h1>
+
+    {{ include('forage/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('forage_index') }}">back to list</a>
+
+    {{ include('forage/_delete_form.html.twig') }}
+{% endblock %}

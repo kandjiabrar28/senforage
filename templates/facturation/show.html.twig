@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Facturation{% endblock %}
+
+{% block body %}
+    <h1>Facturation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ facturation.id }}</td>
+            </tr>
+            <tr>
+                <th>Datefacturation</th>
+                <td>{{ facturation.datefacturation ? facturation.datefacturation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datelimpaiement</th>
+                <td>{{ facturation.datelimpaiement ? facturation.datelimpaiement|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('facturation_index') }}">back to list</a>
+
+    <a href="{{ path('facturation_edit', {'id': facturation.id}) }}">edit</a>
+
+    {{ include('facturation/_delete_form.html.twig') }}
+{% endblock %}

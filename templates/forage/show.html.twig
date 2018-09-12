@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forage{% endblock %}
+
+{% block body %}
+    <h1>Forage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ forage.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomforage</th>
+                <td>{{ forage.nomforage }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('forage_index') }}">back to list</a>
+
+    <a href="{{ path('forage_edit', {'id': forage.id}) }}">edit</a>
+
+    {{ include('forage/_delete_form.html.twig') }}
+{% endblock %}
