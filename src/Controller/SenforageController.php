@@ -54,7 +54,7 @@ class SenforageController extends AbstractController
 
 
 
-        return $this->render('senforage/addclient.html.twig',[
+        return $this->render('senforage/client/index.html.twig',[
             'formAddClient' => $form->createView()
         ]);
             
